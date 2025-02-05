@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day Button</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      background-color: #ffe6f2;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="50" cy="50" r="10" fill="%23ff4d4d" /><circle cx="150" cy="30" r="15" fill="%23ff4d4d" /><circle cx="100" cy="100" r="20" fill="%23ff4d4d" /></svg>');
+      background-repeat: repeat;
+    }
+    .container {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+    h1 {
+      font-size: 24px;
+      color: #ff4d4d;
+      margin-bottom: 10px;
+    }
+    #yesButton {
+      font-size: 16px;
+      padding: 10px 20px;
+      margin: 5px;
+      background-color: #4CAF50; /* Green */
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+    }
+    #yesButton:hover {
+      transform: scale(1.1);
+    }
+    #noButton {
+      font-size: 16px;
+      padding: 10px 20px;
+      margin: 5px;
+      background-color: #ff4d4d; /* Red */
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+    }
+    #noButton:hover {
+      transform: scale(1.1);
+    }
+    #cuteMessage {
+      display: none;
+      font-size: 20px;
+      color: #ff4d4d;
+      margin-top: 10px;
+      animation: bounce 1s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    .credit {
+      font-size: 12px;
+      color: #999;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Will you be my Valentine? 💖</h1>
+    <button id="yesButton">Yes</button>
+    <button id="noButton">No</button>
+    <div id="cuteMessage">Yay! You made my day! 💖</div>
+    <div class="credit">Made by Sonny Nguyen</div>
+  </div>
+
+  <script>
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+    const cuteMessage = document.getElementById('cuteMessage');
+
+    noButton.addEventListener('click', () => {
+      const currentSize = parseInt(window.getComputedStyle(yesButton).fontSize);
+      yesButton.style.fontSize = `${currentSize + 5}px`;
+    });
+
+    yesButton.addEventListener('click', () => {
+      yesButton.style.display = 'none';
+      noButton.style.display = 'none';
+      cuteMessage.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
